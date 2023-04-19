@@ -1,24 +1,27 @@
 export default function createIteratorObject(report) {
-  const allEmployees = report.allEmployees;
+  const { allEmployees } = report;
   return {
     ...allEmployees,
     [Symbol.iterator]() {
       let index = 0;
       const employeesList = [];
       const employeesObj = Object.values(report.allEmployees);
-      employeesObj.forEach(function (value) {
+      employeesObj.forEach((value) => {
         employeesList.push(...value);
       });
 
       return {
         next() {
           if (index < employeesList.length) {
-            return { value: employeesList[index++], done: false };
-	  } else {
-	    return { done: true };
-	  }
-	}
+	    const iter = { value: employeesList[index], done: false };
+	    index += 1;
+
+            return iter;
+          }
+
+          return { done: true };
+        },
       };
-    }
+    },
   };
 }
