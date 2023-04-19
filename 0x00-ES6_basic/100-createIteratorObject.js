@@ -13,8 +13,8 @@ export default function createIteratorObject(report) {
       return {
         next() {
           if (index < employeesList.length) {
-	    const iter = { value: employeesList[index], done: false };
-	    index += 1;
+            const iter = { value: employeesList[index], done: false };
+            index += 1;
 
             return iter;
           }
