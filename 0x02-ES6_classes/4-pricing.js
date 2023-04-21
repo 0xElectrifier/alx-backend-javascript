@@ -30,6 +30,9 @@ export default class Pricing {
   }
 
   static convertPrice(amount, conversionRate) {
+    if (typeof amount !== 'number' || typeof conversionRate != 'number') {
+      throw new TypeError();
+    }
     return amount * conversionRate;
   }
 }
