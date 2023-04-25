@@ -1,4 +1,4 @@
-export default function startString(set, startString) {
+export default function cleanSet(set, startString) {
   const result = [];
 
   for (const name of set) {
