@@ -7,7 +7,7 @@ export default function updateStudentGradeByCity(students, city, newGrades) {
         studentClone.grade = newGrade.grade;
       }
     }
-    if (!studentClone.hasOwnProperty('grade')) studentClone.grade = 'N/A';
+    if (!Object.prototype.hasOwnProperty.call(studentClone, 'grade')) studentClone.grade = 'N/A';
 
     return studentClone;
   });
